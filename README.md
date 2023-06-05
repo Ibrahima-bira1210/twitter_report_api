@@ -12,7 +12,7 @@ Before running the Twitter Report API, ensure that you have the following depend
 1. Clone this repository to your local machine or server:
 
 ``
-   git clone https://github.com/your-username/twitter-report-api.git ``
+   git clone https://github.com/Ibrahina-bira1210twitter-report-api.git ``
 2. Navigate to the project directory:
 
 ``
