@@ -1,0 +1,80 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Twitter Report API",
+    "version": "1.0.0",
+    "description": "API for reporting a Twitter user for posting hate speech messages."
+  },
+  "paths": {
+    "/reportUser": {
+      "post": {
+        "summary": "Report a Twitter user for posting hate speech messages",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ReportUserRequest": {
+        "type": "object",
+        "properties": {
+          "api_key": {
+            "type": "string",
+            "description": "API key for Twitter authentication"
+          },
+          "api_secret_key": {
+            "type": "string",
+            "description": "API secret key for Twitter authentication"
+          },
+          "access_token": {
+            "type": "string",
+            "description": "Access token for Twitter authentication"
+          },
+          "access_token_secret": {
+            "type": "string",
+            "description": "Access token secret for Twitter authentication"
+          },
+          "screen_name": {
+            "type": "string",
+            "description": "Twitter screen name of the user to be reported"
+          },
+          "report_count": {
+            "type": "number",
+            "description": "the number of times the account will be reported"
+          }
+        },
+        "required": ["api_key", "api_secret_key", "access_token", "access_token_secret", "screen_name"]
+      },
+      "ReportUserResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Confirmation message for the successful reporting of the user"
+          }
+        }
+      }
+    }
+  }
+}
